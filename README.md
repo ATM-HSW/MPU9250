@@ -1,7 +1,5 @@
 # MPU9250
-Arduino library for communicating with the [MPU-9250](https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/) and MPU-9255 nine-axis Inertial Measurement Units (IMU).
-
-***Developing with the [Teensy 3.2](https://www.pjrc.com/store/teensy32.html) or [LC](https://www.pjrc.com/store/teensylc.html)? Consider buying our [Teensy Motion Backpack](http://bolderflight.com/products/teensy/motion/), which integrates an MPU-9250 and BME-280 into a stackable add-on module, thoughtfully designed to integrate perfectly with the Teensy. Check out all of our wonderfully small and powerful [Teensy Backpacks](http://bolderflight.com/products/teensy/)***
+Mbed OS ~~Arduino~~ library for communicating with the [MPU-9250](https://www.invensense.com/products/motion-tracking/9-axis/mpu-9250/) and MPU-9255 nine-axis Inertial Measurement Units (IMU).
 
 # Description
 The InvenSense MPU-9250 is a System in Package (SiP) that combines two chips: the MPU-6500 three-axis gyroscope and three-axis accelerometer; and the AK8963 three-axis magnetometer. The MPU-9250 supports I2C, up to 400 kHz, and SPI communication, up to 1 MHz for register setup and 20 MHz for data reading. The following selectable full scale sensor ranges are available:
@@ -16,13 +14,13 @@ The InvenSense MPU-9250 is a System in Package (SiP) that combines two chips: th
 The MPU-9250 samples the gyroscopes, accelerometers, and magnetometers with 16 bit analog to digital converters. It also features programmable digital filters, a precision clock, an embedded temperature sensor, programmable interrupts (including wake on motion), and a 512 byte FIFO buffer.
 
 # Usage
-This library supports both I2C and SPI commmunication with the MPU-9250.
+This library supports ~~both~~ I2C ~~and SPI~~ commmunication with the MPU-9250.
 
 ## Installation
 Simply clone or download this library into your Arduino/libraries folder.
 
 ## Function Description
-This library supports both I2C and SPI communication with the MPU-9250. The *MPU9250* object declaration is overloaded with different declarations for I2C and SPI communication. All other functions remain the same. Additionally, a derived class, *MPU250FIFO*, is included, which provides FIFO setup and data collection functionality in addition to all of the functionality included in the base *MPU9250* class.  
+This library supports ~~both~~ I2C ~~and SPI~~ communication with the MPU-9250. The *MPU9250* object declaration is overloaded with different declarations for I2C ~~and SPI~~ communication. All other functions remain the same. Additionally, a derived class, *MPU250FIFO*, is included, which provides FIFO setup and data collection functionality in addition to all of the functionality included in the base *MPU9250* class.  
 
 ## MPU9250 Class
 
