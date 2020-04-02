@@ -24,11 +24,12 @@ OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SO
 #ifndef MPU9250_h
 #define MPU9250_h
 
-#include "Arduino.h"
-#include "Wire.h"    // I2C library
-#include "SPI.h"     // SPI library
+#include "mbed.h"
 
-class MPU9250{
+#define MPU9250_ADDRESS_0 0x68<<1  // Device address when ADO = 0
+#define MPU9250_ADDRESS_1 0x69<<1  // Device address when ADO = 1
+
+class MPU9250 {
   public:
     enum GyroRange
     {
@@ -68,8 +69,8 @@ class MPU9250{
       LP_ACCEL_ODR_250HZ = 10,
       LP_ACCEL_ODR_500HZ = 11
     };
-    MPU9250(TwoWire &bus,uint8_t address);
-    MPU9250(SPIClass &bus,uint8_t csPin);
+    MPU9250(I2C *bus,uint8_t address);
+//    MPU9250(SPI *bus,uint8_t csPin);
     int begin();
     int setAccelRange(AccelRange range);
     int setGyroRange(GyroRange range);
@@ -120,17 +121,17 @@ class MPU9250{
   protected:
     // i2c
     uint8_t _address;
-    TwoWire *_i2c;
+    I2C *_i2c;
     const uint32_t _i2cRate = 400000; // 400 kHz
     size_t _numBytes; // number of bytes received from I2C
     // spi
-    SPIClass *_spi;
-    uint8_t _csPin;
+//    SPI *_spi;
+//    uint8_t _csPin;
     bool _useSPI;
     bool _useSPIHS;
-    const uint8_t SPI_READ = 0x80;
-    const uint32_t SPI_LS_CLOCK = 1000000;  // 1 MHz
-    const uint32_t SPI_HS_CLOCK = 15000000; // 15 MHz
+//    const uint8_t SPI_READ = 0x80;
+//    const uint32_t SPI_LS_CLOCK = 1000000;  // 1 MHz
+//    const uint32_t SPI_HS_CLOCK = 15000000; // 15 MHz
     // track success of interacting with sensor
     int _status;
     // buffer for reading from sensor
